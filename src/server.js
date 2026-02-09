@@ -12,6 +12,10 @@ await connectDB();
 app.use("/api/sales", salesRoutes);
 app.use("/api/leaderboard", leaderboardRoutes);
 
+app.get("/", (req, res) => {
+  res.redirect("/api/leaderboard");
+});
+
 app.use((req, res, next) => {
   res.status(404).json({ error: "Route not found" });
 });
